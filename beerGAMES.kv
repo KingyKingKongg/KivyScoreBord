@@ -1,0 +1,1580 @@
+#:import rgba kivy.utils.get_color_from_hex
+Manager:
+
+    mainpage:
+    ping:
+
+
+<MainPage>:
+    name: "ready"
+    t1:t1 
+    t2:t2
+    t3:t3
+    t4:t4
+
+
+    FloatLayout:
+
+        Image:
+            source: "ghostBoy.jpg"
+        #     size: self.texture_size
+
+        Label:
+            pos_hint: {"x": .001, "y": .45}
+            text:'Beer-Lympics - Scary Games'
+            font_size: 50
+            # color: 13, 255, 0, 0.8
+
+
+        TextInput:
+            id: t1  
+            pos_hint: {"x":.15, "y":.80}
+            size_hint_x: .15
+            size_hint_y: .07
+            font_size: 20
+            hint_text: "Spooky Bois"
+            multiline: False  
+
+
+        TextInput:
+            id: t3 
+            pos_hint: {"x":.65, "y":.80}
+            size_hint_x: .15
+            size_hint_y: .07
+            font_size: 20
+            hint_text: "Monster Party"
+            multiline: False  
+
+
+        TextInput:
+            id: t2  
+            pos_hint: {"x":.15, "y":.70}
+            size_hint_x: .15
+            size_hint_y: .07
+            font_size: 20
+            hint_text: "Screeam"
+            multiline: False  
+
+
+        TextInput:
+            id: t4  
+            pos_hint: {"x":.65, "y":.70}
+            size_hint_x: .15
+            size_hint_y: .07
+            font_size: 20
+            hint_text: "GhostBuster"
+            multiline: False  
+
+
+        Button:
+            
+            text:'GO!'
+            background_color: (0, 0.502, 1)
+            font_size: 40
+            size_hint: 0.2,0.1
+            pos_hint: {"x": .35, "y":.01}
+            on_release: 
+                app.root.current = "ping"
+                root.manager.transition.direction = "down"
+                root.add_names()
+
+
+
+
+<Ping>:
+
+    t1:t1 
+    t2:t2
+    t3:t3
+    t4:t4
+    winner: winner
+    second:second
+    r1loser:r1loser
+    r2loser:r2loser
+    r2:r2
+    r1:r1
+    team1L:team1L
+    team2L:team2L
+    team4L:team4L
+    team3L:team3L
+    lb2:lb2
+    lb1 :lb1
+    l2ndL:l2ndL
+    l22ndL:l22ndL
+    rLeft:rLeft
+    rRight:rRight
+
+
+
+    FloatLayout:
+
+        Label:
+            color: rgba('#fff700')
+            pos_hint: {"x": .45, "y": .95}
+            size_hint: [None, .01]
+            text:'Ping-Pong Race'
+            font_size: 70
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: winner
+            color: rgba('#f5bd05')
+            pos_hint: {"x": .75, "y": .77}
+            size_hint: [None, .01]
+            text:'1st Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: second
+            color: rgba('#99948b')
+            pos_hint: {"x": .75, "y": .67}
+            size_hint: [None, .01]
+            text:'2nd Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+
+
+        Label:
+            id: l2ndL        
+            color: rgba('#876f45')
+            pos_hint: {"x": .75, "y": .38}
+            size_hint: [None, .01]
+            text:'3rd Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: l22ndL        
+            color: rgba('#78201c')
+            pos_hint: {"x": .75, "y": .28}
+            size_hint: [None, .01]
+            text:'4th Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+            
+
+        Label:
+            id: team1L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .83}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team3L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .71}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+
+        Label:
+            id: team2L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .53}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team4L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .42}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+           
+
+        TextInput:
+            id: t1  
+            pos_hint: {"x":.10, "y":.75}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 1"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t3  
+            pos_hint: {"x":.10, "y":.65}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "place 3"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t2 
+            pos_hint: {"x":.10, "y":.45}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 2"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+
+
+        TextInput:
+            id: t4  
+            pos_hint: {"x":.10, "y":.35}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 4"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+        Label:
+            id: rLeft
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .23, "y": .75}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: rRight
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .23, "y": .45}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r1
+            pos_hint: {"x":.25, "y":.37}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Round 2"
+            multiline: False 
+
+
+        TextInput:
+            id: r2 
+            pos_hint: {"x":.25, "y":.67}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Round 2"
+            multiline: False  
+
+
+        Label:
+            id: lb1         
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .43, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser 1'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: lb2 
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .55, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser 2'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r2loser
+            pos_hint: {"x":.45, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Loser 2"
+            multiline: False  
+
+        TextInput:
+            id: r1loser 
+            pos_hint: {"x":.55, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Loser 2"
+            multiline: False  
+
+
+        Button:
+            text:'Start'
+            background_color: rgba('#1aff00')
+            font_size: 10
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.90}
+            on_release: 
+                root.start()
+
+        Button:
+            text:'R1'
+            background_color: (0, 0.602, 1)
+            font_size: 15
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.85}
+            on_release: 
+                root.roundOne()
+        Button:
+            text:'Win\nR2'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.80}
+            on_release: 
+                root.roundTwo()
+        Button:
+            text:'Loser\nR3'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.75}
+            on_release: 
+                root.roundTree()
+        Button:
+            text:'Next\nGame'
+            background_color: rgba('#ff0000')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.65}
+            on_release: 
+                app.root.current = "pyramid"
+                root.manager.transition.direction = "left"
+                root.update()
+
+<Pyramid>:
+    newSco:newSco
+    newSco2:newSco2
+    newSco3:newSco3
+    newSco4:newSco4
+
+    t1:t1 
+    t2:t2
+    t3:t3
+    t4:t4
+    winner: winner
+    second:second
+    r1loser:r1loser
+    r2loser:r2loser
+    r2:r2
+    r1:r1
+    team1L:team1L
+    team2L:team2L
+    team4L:team4L
+    team3L:team3L
+    lb2:lb2
+    lb1 :lb1
+    l2ndL:l2ndL
+    l22ndL:l22ndL
+    rLeft:rLeft
+    rRight:rRight
+
+
+
+    FloatLayout:
+
+        Label:
+            color: rgba('#57736c')
+            pos_hint: {"x": .45, "y": .95}
+            size_hint: [None, .01]
+            text:'Pyramid Games'
+            font_size: 60
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: winner
+            color: rgba('#f5bd05')
+            pos_hint: {"x": .75, "y": .77}
+            size_hint: [None, .01]
+            text:'1st Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: second
+            color: rgba('#99948b')
+            pos_hint: {"x": .75, "y": .67}
+            size_hint: [None, .01]
+            text:'2nd Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+
+
+        Label:
+            id: l2ndL        
+            color: rgba('#876f45')
+            pos_hint: {"x": .75, "y": .38}
+            size_hint: [None, .01]
+            text:'3rd Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: l22ndL        
+            color: rgba('#78201c')
+            pos_hint: {"x": .75, "y": .28}
+            size_hint: [None, .01]
+            text:'4th Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+            
+
+        Label:
+            id: team1L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .83}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team3L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .71}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+
+        Label:
+            id: team2L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .53}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team4L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .42}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+           
+
+           
+
+        TextInput:
+            id: t1  
+            pos_hint: {"x":.10, "y":.75}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 1"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t3  
+            pos_hint: {"x":.10, "y":.65}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "place 3"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t2 
+            pos_hint: {"x":.10, "y":.45}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 2"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+
+
+        TextInput:
+            id: t4  
+            pos_hint: {"x":.10, "y":.35}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 4"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+        Label:
+            id: rLeft
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .23, "y": .75}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: rRight
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .23, "y": .45}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r1
+            pos_hint: {"x":.25, "y":.37}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Round 2"
+            multiline: False 
+
+
+        TextInput:
+            id: r2 
+            pos_hint: {"x":.25, "y":.67}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Round 2"
+            multiline: False  
+
+
+        Label:
+            id: lb1         
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .43, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser B1'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: lb2 
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .55, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser B2'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r2loser
+            pos_hint: {"x":.45, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Loser 2"
+            multiline: False  
+
+        TextInput:
+            id: r1loser 
+            pos_hint: {"x":.55, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Loser 2"
+            multiline: False  
+
+        Button:
+            text:'Start'
+            background_color: rgba('#1aff00')
+            font_size: 10
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.90}
+            on_release: 
+                root.start()
+                root.showScore()
+
+        Button:
+            text:'R1'
+            background_color: (0, 0.602, 1)
+            font_size: 15
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.85}
+            on_release: 
+                root.roundOne()
+        Button:
+            text:'Win\nR2'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.80}
+            on_release: 
+                root.roundTwo()
+        Button:
+            text:'Loser\nR3'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.75}
+            on_release: 
+                root.roundTree()
+        Button:
+            text:'Next\nGame'
+            background_color: rgba('#ff0000')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.65}
+            on_release: 
+                app.root.current = "tricks"
+                root.manager.transition.direction = "left"
+                root.update()
+
+
+
+
+        Label:
+            id: newSco
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .03, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+
+
+        Label:
+            id: newSco2
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .25, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+
+
+        Label:
+            id: newSco3
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .55, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+
+
+        Label:
+            id: newSco4
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .75, "y": .10}
+            size_hint: [None, .01]
+            text:'Score 4'
+            font_size: 20
+
+
+<Target>:
+    newSco:newSco
+    newSco2:newSco2
+    newSco3:newSco3
+    newSco4:newSco4
+
+    bonus1:bonus1
+    bonus2:bonus2
+    bonus3:bonus3
+    bonus4:bonus4
+
+
+    FloatLayout:
+
+        Label:
+            color: rgba('#02fabc')
+            pos_hint: {"x": .45, "y": .95}
+            size_hint: [None, .01]
+            text:'Target Practice (Bonus Points)'
+            font_size: 60
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+
+        Button:
+            text:'Start'
+            background_color: rgba('#1aff00')
+            font_size: 10
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.90}
+            on_release: 
+                root.showScore()
+
+
+        Button:
+            text:'Next\nGame'
+            background_color: rgba('#ff0000')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.65}
+            on_release: 
+                app.root.current = "finals"
+                root.manager.transition.direction = "down"
+                root.update()
+
+
+        Label:
+            id: newSco
+            color: rgba('#f5bd05')
+            pos_hint: {"x": .45, "y": .87}
+            size_hint: [None, .01]
+            text:'te 1'
+            font_size: 35
+        TextInput:
+            id: bonus1
+            pos_hint: {"x":.45, "y":.77}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus 1"
+            multiline: False  
+
+        Label:
+            id: newSco2
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .45, "y": .67}
+            size_hint: [None, .01]
+            text:'te 2'
+            font_size: 35
+
+        TextInput:
+            id: bonus2
+            pos_hint: {"x":.45, "y":.57}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus 2"
+            multiline: False 
+
+
+        Label:
+            id: newSco3
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .45, "y": .47}
+            size_hint: [None, .01]
+            text:'te 3'
+            font_size: 35
+        TextInput:
+            id: bonus3
+            pos_hint: {"x":.45, "y":.37}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus 3"
+            multiline: False 
+
+
+        Label:
+            id: newSco4
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .45, "y": .27}
+            size_hint: [None, .01]
+            text:'Score 4'
+            font_size: 35
+        TextInput:
+            id: bonus4
+            pos_hint: {"x":.45, "y":.17}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus 4"
+            multiline: False 
+
+
+
+<Tricks>:
+    newSco:newSco
+    newSco2:newSco2
+    newSco3:newSco3
+    newSco4:newSco4
+
+    bonus1:bonus1
+    bonus2:bonus2
+    bonus3:bonus3
+    bonus4:bonus4
+
+
+    t1:t1 
+    t2:t2
+    t3:t3
+    t4:t4
+    winner: winner
+    second:second
+    r1loser:r1loser
+    r2loser:r2loser
+    r2:r2
+    r1:r1
+    team1L:team1L
+    team2L:team2L
+    team4L:team4L
+    team3L:team3L
+    lb2:lb2
+    lb1 :lb1
+    l2ndL:l2ndL
+    l22ndL:l22ndL
+    rLeft:rLeft
+    rRight:rRight
+
+
+
+    FloatLayout:
+
+        Label:
+            color: rgba('#fa6c00')
+            pos_hint: {"x": .45, "y": .95}
+            size_hint: [None, .01]
+            text:'Trick...then Drink (Bonus Points)'
+            font_size: 65
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: winner
+            color: rgba('#f5bd05')
+            pos_hint: {"x": .75, "y": .77}
+            size_hint: [None, .01]
+            text:'1st Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: second
+            color: rgba('#99948b')
+            pos_hint: {"x": .75, "y": .67}
+            size_hint: [None, .01]
+            text:'2nd Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+
+
+        Label:
+            id: l2ndL        
+            color: rgba('#876f45')
+            pos_hint: {"x": .75, "y": .38}
+            size_hint: [None, .01]
+            text:'3rd Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: l22ndL        
+            color: rgba('#78201c')
+            pos_hint: {"x": .75, "y": .28}
+            size_hint: [None, .01]
+            text:'4th Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+            
+
+        Label:
+            id: team1L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .83}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team3L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .71}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+
+        Label:
+            id: team2L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .53}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team4L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .42}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+           
+           
+
+        TextInput:
+            id: t1  
+            pos_hint: {"x":.10, "y":.75}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 1"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t3  
+            pos_hint: {"x":.10, "y":.65}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "place 3"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t2 
+            pos_hint: {"x":.10, "y":.45}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 2"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+
+
+        TextInput:
+            id: t4  
+            pos_hint: {"x":.10, "y":.35}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 4"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+        Label:
+            id: rLeft
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .23, "y": .75}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: rRight
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .23, "y": .45}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r1
+            pos_hint: {"x":.25, "y":.37}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Round 2"
+            multiline: False 
+
+
+        TextInput:
+            id: r2 
+            pos_hint: {"x":.25, "y":.67}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Round 2"
+            multiline: False  
+
+
+        Label:
+            id: lb1         
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .43, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser B1'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: lb2 
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .55, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser B2'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r2loser
+            pos_hint: {"x":.45, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Loser 2"
+            multiline: False  
+
+        TextInput:
+            id: r1loser 
+            pos_hint: {"x":.55, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Loser 2"
+            multiline: False  
+
+
+
+        Button:
+            text:'Start'
+            background_color: rgba('#1aff00')
+            font_size: 10
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.90}
+            on_release: 
+                root.start()
+                root.showScore()
+
+
+        Button:
+            text:'R1'
+            background_color: (0, 0.602, 1)
+            font_size: 15
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.85}
+            on_release: 
+                root.roundOne()
+        Button:
+            text:'Win\nR2'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.80}
+            on_release: 
+                root.roundTwo()
+        Button:
+            text:'Loser\nR3'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.75}
+            on_release: 
+                root.roundTree()
+        Button:
+            text:'Next\nGame'
+            background_color: rgba('#ff0000')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.65}
+            on_release: 
+                app.root.current = "cans"
+                root.manager.transition.direction = "left"
+                root.update()
+
+
+        Label:
+            id: newSco
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .03, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+        TextInput:
+            id: bonus1
+            pos_hint: {"x":.03, "y":.01}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus"
+            multiline: False  
+
+        Label:
+            id: newSco2
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .25, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+        TextInput:
+            id: bonus2
+            pos_hint: {"x":.25, "y":.01}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus"
+            multiline: False 
+
+
+        Label:
+            id: newSco3
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .55, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+        TextInput:
+            id: bonus3
+            pos_hint: {"x":.55, "y":.01}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus"
+            multiline: False 
+
+
+        Label:
+            id: newSco4
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .75, "y": .10}
+            size_hint: [None, .01]
+            text:'Score 4'
+            font_size: 20
+        TextInput:
+            id: bonus4
+            pos_hint: {"x":.75, "y":.01}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Bonus"
+            multiline: False 
+
+<Cans>:
+    newSco:newSco
+    newSco2:newSco2
+    newSco3:newSco3
+    newSco4:newSco4
+
+    t1:t1 
+    t2:t2
+    t3:t3
+    t4:t4
+    winner: winner
+    second:second
+    r1loser:r1loser
+    r2loser:r2loser
+    r2:r2
+    r1:r1
+    team1L:team1L
+    team2L:team2L
+    team4L:team4L
+    team3L:team3L
+    lb2:lb2
+    lb1 :lb1
+    l2ndL:l2ndL
+    l22ndL:l22ndL
+    rLeft:rLeft
+    rRight:rRight
+
+
+
+    FloatLayout:
+
+        Label:
+            color: rgba('#fc00b5')
+            pos_hint: {"x": .45, "y": .95}
+            size_hint: [None, .01]
+            text:'Beer Up'
+            font_size: 70
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: winner
+            color: rgba('#f5bd05')
+            pos_hint: {"x": .75, "y": .77}
+            size_hint: [None, .01]
+            text:'1st Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: second
+            color: rgba('#99948b')
+            pos_hint: {"x": .75, "y": .67}
+            size_hint: [None, .01]
+            text:'2nd Place'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+
+
+        Label:
+            id: l2ndL        
+            color: rgba('#876f45')
+            pos_hint: {"x": .75, "y": .38}
+            size_hint: [None, .01]
+            text:'3rd Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: l22ndL        
+            color: rgba('#78201c')
+            pos_hint: {"x": .75, "y": .28}
+            size_hint: [None, .01]
+            text:'4th Place'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+            
+
+        Label:
+            id: team1L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .83}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team3L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .71}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+
+        Label:
+            id: team2L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .53}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: team4L        
+            color: rgba('#ede1e1')
+            pos_hint: {"x": .08, "y": .42}
+            size_hint: [None, .01]
+            text:'Team'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE 
+           
+           
+
+        TextInput:
+            id: t1  
+            pos_hint: {"x":.10, "y":.75}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 1"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t3  
+            pos_hint: {"x":.10, "y":.65}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "place 3"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+        TextInput:
+            id: t2 
+            pos_hint: {"x":.10, "y":.45}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 2"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+
+
+
+        TextInput:
+            id: t4  
+            pos_hint: {"x":.10, "y":.35}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "Place 4"
+            multiline: False  
+            on_text_validate: t2.focus = True
+
+        Label:
+            id: rLeft
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .23, "y": .75}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: rRight
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .23, "y": .45}
+            size_hint: [None, .01]
+            text:''
+            font_size: 23
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r1
+            pos_hint: {"x":.25, "y":.37}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Round 2"
+            multiline: False 
+
+
+        TextInput:
+            id: r2 
+            pos_hint: {"x":.25, "y":.67}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Round 2"
+            multiline: False  
+
+
+        Label:
+            id: lb1         
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .43, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser B1'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: lb2 
+            color: 226, 188, 23, 0.8
+            pos_hint: {"x": .55, "y": .20}
+            size_hint: [None, .01]
+            text:'Loser B2'
+            font_size: 15
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+
+        TextInput:
+            id: r2loser
+            pos_hint: {"x":.45, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "2 Loser 2"
+            multiline: False  
+
+        TextInput:
+            id: r1loser 
+            pos_hint: {"x":.55, "y":.25}
+            size_hint_x: .1
+            size_hint_y: .05
+            font_size: 10
+            hint_text: "1 Loser 2"
+            multiline: False  
+
+        Button:
+            text:'Start'
+            background_color: rgba('#1aff00')
+            font_size: 10
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.90}
+            on_release: 
+                root.start()
+                root.showScore()
+
+        Button:
+            text:'R1'
+            background_color: (0, 0.602, 1)
+            font_size: 15
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.85}
+            on_release: 
+                root.roundOne()
+        Button:
+            text:'Win\nR2'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.80}
+            on_release: 
+                root.roundTwo()
+        Button:
+            text:'Loser\nR3'
+            background_color: rgba('#00e5ff')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.75}
+            on_release: 
+                root.roundTree()
+        Button:
+            text:'Next\nGame'
+            background_color: rgba('#ff0000')
+            font_size: 13
+            size_hint: 0.05,0.05
+            pos_hint: {"x": .02, "y":.65}
+            on_release: 
+                app.root.current = "target"
+                root.manager.transition.direction = "left"
+                root.update()
+
+
+        Label:
+            id: newSco
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .03, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+
+
+        Label:
+            id: newSco2
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .25, "y": .10}
+            size_hint: [None, .01]
+            text:''
+
+
+
+        Label:
+            id: newSco3
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .55, "y": .10}
+            size_hint: [None, .01]
+            text:''
+            font_size: 20
+
+
+
+        Label:
+            id: newSco4
+            color: rgba('#fcfffd')
+            pos_hint: {"x": .75, "y": .10}
+            size_hint: [None, .01]
+            text:'Score 4'
+            font_size: 20
+
+
+
+
+<Finals>:
+    winner:winner
+    second:second
+    third:third
+    fourth:fourth
+
+
+
+    FloatLayout:
+
+        Label:
+            color: rgba('#ffffff')
+            pos_hint: {"x": .45, "y": .95}
+            size_hint: [None, .01]
+            text:'Final Scores'
+            font_size: 70
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: winner
+            color: rgba('#b8b216')
+            pos_hint: {"x": .45, "y": .77}
+            size_hint: [None, .01]
+            text:'1st'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+        Label:
+            id: second
+            color: rgba('#b87a16')
+            pos_hint: {"x": .45, "y": .67}
+            size_hint: [None, .01]
+            text:'2nd'
+            font_size: 35
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: third        
+            color: rgba('#8416b8')
+            pos_hint: {"x": .45, "y": .38}
+            size_hint: [None, .01]
+            text:'3rd'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Label:
+            id: fourth        
+            color: rgba('#0015f7')
+            pos_hint: {"x": .45, "y": .28}
+            size_hint: [None, .01]
+            text:'4th'
+            font_size: 35
+            # color: .700,.063,.063
+            #USE THIS LABEL IN THE FUTURE
+
+        Button:
+            text:'Update'
+            background_color: rgba('#00f719')
+            font_size: 13
+            size_hint: 0.10,0.10
+            pos_hint: {"x": .45, "y":.05}
+            on_release: 
+                root.update()
+
+
+
+
+
+
+
+
+
+
+
